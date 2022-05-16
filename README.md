@@ -3,6 +3,18 @@
 
 Structural variant calling from single-cell Strand-seq data - summarized in a single [Snakemake](https://bitbucket.org/snakemake/snakemake) pipeline.
 
+## My (benedict909) changes
+
+I have made slight changes to the code of the pipeline that enable it to be used smoothly with this [docker image](https://hub.docker.com/r/smei/mosaicatcher-pipeline-rpe1-chr3#!).
+
+### Installation on the BIH cluster
+
+The singularity can be installed from the docker image like so: `singularity shell --bind /fast docker://smei/mosaicatcher-pipeline-rpe1-chr3`
+Note the `--bind /fast` that ensures the BIH fast drive is mounted to the image. 
+
+This modified version of the pipeline can be downloaded like so: `git clone https://github.com/benedict909/mosaicatcher-pipeline`
+
+See below for original README:
 
 ## Overview of this workflow
 
