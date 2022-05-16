@@ -15,6 +15,17 @@ Note the `--bind /fast` that ensures the BIH fast drive is mounted to the image.
 
 This modified version of the pipeline can be downloaded like so: `git clone https://github.com/benedict909/mosaicatcher-pipeline`
 
+### Runnning scTRIP on the BIH cluster 
+
+You can then run scTRIP using the instructions provided below in the original README. The config file I use is provided in this repo. e.g. I would submit this as a sbatch job: 
+```
+singularity exec --bind /fast docker://smei/mosaicatcher-pipeline-rpe1-chr3 snakemake \
+    -j $(nproc) \
+    --configfile /fast/groups/ag_sanders/scratch/bendy_tmp/pipeline_test/pipelinefriday/Snake.config-singularity.BIH.json \
+    --latency-wait 60 \
+    --printshellcmd
+```
+
 See below for original README:
 
 ## Overview of this workflow
