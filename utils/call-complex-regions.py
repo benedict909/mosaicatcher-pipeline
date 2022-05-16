@@ -38,8 +38,10 @@ def main():
 	calls = pd.read_csv(args.callset, sep='\t')
 
 	# Identify "complex" intervals
-	segments = calls.groupby(by=['chrom','start','end']).sv_call_name.agg(is_complex=partial(is_complex, ignore_haplotypes=args.ignore_haplotypes, min_cell_count=args.min_cell_count)).reset_index().sort_values(['chrom','start','end'])
-	
+	# add dict to aggregate function as the singularity uses pandas <0.25 and this is necessary
+	#segments = calls.groupby(by=['chrom','start','end']).sv_call_name.agg(is_complex=partial(is_complex, ignore_haplotypes=args.ignore_haplotypes, min_cell_count=args.min_cell_count)).reset_index().sort_values(['chrom','start','end'])
+	segments = calls.groupby(by=['chrom','start','end']).sv_call_name.agg(dict(is_complex=partial(is_complex, ignore_haplotypes=args.ignore_haplotypes, min_cell_count=args.min_cell_count))).reset_index().sort_values(['chrom','start','end'])
+
 
 	# merge complex segments if closer than args.merge_distance
 	complex_segments = pd.DataFrame(columns=['chrom','start','end'])
