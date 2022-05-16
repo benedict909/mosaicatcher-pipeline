@@ -10,6 +10,7 @@ I have made slight changes to the code of the pipeline that enable it to be used
 ### Installation on the BIH cluster
 
 The singularity can be installed from the docker image like so: `singularity shell --bind /fast docker://smei/mosaicatcher-pipeline-rpe1-chr3`
+
 Note the `--bind /fast` that ensures the BIH fast drive is mounted to the image. 
 
 This modified version of the pipeline can be downloaded like so: `git clone https://github.com/benedict909/mosaicatcher-pipeline`
