@@ -9,21 +9,27 @@ I have made slight changes to the code of the pipeline that enable it to be used
 
 ### Installation on the BIH cluster
 
-The singularity can be installed from the docker image like so: `singularity shell --bind /fast docker://smei/mosaicatcher-pipeline-rpe1-chr3`
+The singularity can be installed from the docker image like so: 
+
+```
+singularity shell --bind /fast docker://smei/mosaicatcher-pipeline-rpe1-chr3
+```
 
 Note the `--bind /fast` that ensures the BIH fast drive is mounted to the image. 
 
-This modified version of the pipeline can be downloaded like so: `git clone https://github.com/benedict909/mosaicatcher-pipeline`
+This modified version of the pipeline can be downloaded like so: 
+
+```git clone https://github.com/benedict909/mosaicatcher-pipeline
+```
 
 ### Runnning scTRIP on the BIH cluster 
 
-You can then run scTRIP using the instructions provided below in the original README. The config file I use is provided in this repo. e.g. I would submit this as a sbatch job: 
+You can then run scTRIP using the instructions provided below in the original README. The config file I use is provided in this repo. 
+This is how I would submit the snakemake execution as a sbatch job on the BIH cluster using the singularity image:
 ```
 singularity exec --bind /fast docker://smei/mosaicatcher-pipeline-rpe1-chr3 snakemake \
     -j $(nproc) \
-    --configfile /fast/groups/ag_sanders/scratch/bendy_tmp/pipeline_test/pipelinefriday/Snake.config-singularity.BIH.json \
-    --latency-wait 60 \
-    --printshellcmd
+    --configfile /fast/groups/ag_sanders/scratch/bendy_tmp/pipeline_test/pipelinefriday/Snake.config-singularity.BIH.json
 ```
 
 See below for original README:
