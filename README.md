@@ -19,7 +19,8 @@ Note the `--bind /fast` that ensures the BIH fast drive is mounted to the image.
 
 This modified version of the pipeline can be downloaded like so: 
 
-```git clone https://github.com/benedict909/mosaicatcher-pipeline
+```
+git clone https://github.com/benedict909/mosaicatcher-pipeline
 ```
 
 ### Runnning scTRIP on the BIH cluster 
