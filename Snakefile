@@ -444,8 +444,7 @@ rule extract_single_cell_counts:
     shell:
         """
         # Issue #1022 (https://bitbucket.org/snakemake/snakemake/issues/1022)
-        zcat {input} | awk -v name={cell} -f utils/command1.awk | gzip > {output}
-	#zcat {input} | awk -v name={wildcards.cell} -f utils/command1.awk | gzip > {output}
+	zcat {input} | awk -v name={wildcards.cell} -f utils/command1.awk | gzip > {output}
         """
 
 
