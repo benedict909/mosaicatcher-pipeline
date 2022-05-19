@@ -3,7 +3,7 @@
 
     "snv_sites_to_genotype" : "/fast/groups/ag_sanders/work/data/reference/snv_sites_to_genotype/ALL.chr1-22plusX_GRCh38_sites.20170504.renamedCHR.vcf.gz",
 
-    "reference"     : "/fast/groups/ag_sanders/work/data/reference/genomes/GCA_000001405.15_GRCh38_no_alt_analysis_set.fna",
+    "reference"     : "/reference.fa",
     "mosaicatcher"  : "mosaic",
     "plot_script"   : "/mosaicatcher/R/qc.R",
     "sv_plot_script": "/mosaicatcher/R/chrom.R",
