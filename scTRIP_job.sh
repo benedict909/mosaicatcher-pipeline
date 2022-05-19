@@ -15,5 +15,5 @@ echo $(pwd)
 
 singularity exec --bind /fast docker://smei/mosaicatcher-pipeline-rpe1-chr3 snakemake \
     -j $(nproc) \
-    --configfile Snake.config-singularity..BIH.json \
+    --configfile Snake.config-singularity.BIH.json \
     -F
