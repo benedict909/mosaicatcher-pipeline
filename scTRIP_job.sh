@@ -10,7 +10,7 @@
 #SBATCH --mail-type=ALL
 #SBATCH --mail-user=benedict.monteiro@mdc-berlin.de
 
-cd /fast/groups/ag_sanders/scratch/bendy_tmp/
+cd /fast/groups/ag_sanders/scratch/bendy_tmp/ # path to directory containing cloned repository
 echo $(pwd)
 
 singularity exec --bind /fast docker://smei/mosaicatcher-pipeline-rpe1-chr3 snakemake \
