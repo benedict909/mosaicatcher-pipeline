@@ -28,9 +28,11 @@ git clone https://github.com/benedict909/mosaicatcher-pipeline
 You can then run scTRIP using the instructions provided below in the original README. The config file I use is provided in this repo. 
 This is how I would submit the snakemake execution as a sbatch job on the BIH cluster using the singularity image:
 ```
+cd ${PIPELINE_DIR}
+
 singularity exec --bind /fast docker://smei/mosaicatcher-pipeline-rpe1-chr3 snakemake \
     -j $(nproc) \
-    --configfile /fast/groups/${PIPELINE_DIR}/Snake.config-singularity.BIH.json
+    --configfile Snake.config-singularity.BIH.json
 ```
 
 Where `${PIPELINE_DIR}` is the directory containing this cloned repo, which also contains a `/bam/` directory with the structure detailed below.
