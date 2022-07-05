@@ -17,16 +17,12 @@ echo $(pwd)
 # test working directory is set correctly
 [ ! $(ls | grep 'Snakefile' | wc -l) -ge 1 ] && { echo "ERROR: a Snakefile could not be found in $(pwd), make sure you are cd'ing into the cloned repo dir" ; exit ; }
 
-# correct input - scTRIP prefers "sort" not "sorted in the inout filenames
-for sample in $(ls bam)
-do
-        if [[ "$(ls bam/${sample}/selected)" == *sorted* ]] ; then
-
-                echo "correcting file names in $sample"
-                for mydir in all selected
-                do
-                        for myfile in $(ls bam/$sample/$mydir)
-                        do
+# correct sample names
+for sample in $(ls bam) ; do
+        for mydir in all selected ; do
+                if [[ "$(ls bam/${sample}/${mydir})" == *sorted* ]] ; then
+                        echo "correcting file names in bam/${sample}/${mydir}"
+                        for myfile in $(ls bam/$sample/$mydir);  do
                                 (
                                         newname=$(echo $myfile | sed 's/sorted/sort/g')
                                         mv bam/$sample/$mydir/$myfile bam/$sample/$mydir/$newname
@@ -37,8 +33,8 @@ do
                                 fi
                         done
                         wait # wait for all jobs in the above loop to be done
-                done
-        fi
+                fi
+        done
 done
 
 singularity exec --bind /fast docker://smei/mosaicatcher-pipeline-rpe1-chr3 snakemake \
