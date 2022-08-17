@@ -1,17 +1,14 @@
 #!/bin/bash
 #
-#SBATCH --job-name=scTRIP
-#SBATCH --output=//fast/groups/ag_sanders/work/projects/benedict/logs/2022 .txt
-#
 #SBATCH --ntasks=64
 #SBATCH --nodes=1
 #SBATCH --time=2-00:00
 #SBATCH --mem-per-cpu=4G
 #SBATCH --partition=highmem
 #SBATCH --mail-type=ALL
-#SBATCH --mail-user=benedict.monteiro@mdc-berlin.de
 
-cd /fast/groups/ag_sanders/scratch/bendy_tmp/ # path to directory containing cloned repository
+cd $SLURM_SUBMIT_DIR 
+#cd /fast/groups/ag_sanders/scratch/bendy_tmp/ # path to directory containing cloned repository
 echo $(pwd)
 
 # test working directory is set correctly
