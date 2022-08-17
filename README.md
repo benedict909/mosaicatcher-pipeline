@@ -30,9 +30,11 @@ This is how I would submit the snakemake execution as a sbatch job on the BIH cl
 ```
 cd ${PIPELINE_DIR}
 
-singularity exec --bind /fast docker://smei/mosaicatcher-pipeline-rpe1-chr3 snakemake \
-    -j $(nproc) \
-    --configfile Snake.config-singularity.BIH.json
+sbatch \
+	--job-name=scTRIP
+	--output=//fast/groups/ag_sanders/work/projects/${USER}/logs/$(date +%Y%m%d)_scTRIP_log.txt \
+	--mail-user=${USER}@mdc-berlin.de
+	scTRIP_job.sh
 ```
 
 Where `${PIPELINE_DIR}` is the directory containing this cloned repo, which also contains a `/bam/` directory with the structure detailed below.
