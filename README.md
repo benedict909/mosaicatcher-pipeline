@@ -31,9 +31,9 @@ This is how I would submit the snakemake execution as a sbatch job on the BIH cl
 cd ${PIPELINE_DIR}
 
 sbatch \
-	--job-name=scTRIP
+	--job-name=scTRIP \
 	--output=//fast/groups/ag_sanders/work/projects/${myname}/logs/$(date +%Y%m%d)_scTRIP_log.txt \
-	--mail-user=${myemail}
+	--mail-user=${myemail} \
 	scTRIP_job.sh
 ```
 
