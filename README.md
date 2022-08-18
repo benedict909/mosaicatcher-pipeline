@@ -20,7 +20,7 @@ Note the `--bind /fast` that ensures the BIH fast drive is mounted to the image.
 This modified version of the pipeline can be downloaded like so: 
 
 ```
-git clone https://github.com/benedict909/mosaicatcher-pipeline
+git clone https://github.com/benedict909/mosaicatcher-pipeline ${PIPELINE_DIR}
 ```
 
 ### Runnning scTRIP on the BIH cluster 
@@ -33,7 +33,7 @@ cd ${PIPELINE_DIR}
 sbatch \
 	--job-name=scTRIP
 	--output=//fast/groups/ag_sanders/work/projects/${USER}/logs/$(date +%Y%m%d)_scTRIP_log.txt \
-	--mail-user=${USER}@mdc-berlin.de
+	--mail-user=${myemail}
 	scTRIP_job.sh
 ```
 
