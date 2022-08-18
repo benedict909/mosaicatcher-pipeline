@@ -32,7 +32,7 @@ cd ${PIPELINE_DIR}
 
 sbatch \
 	--job-name=scTRIP
-	--output=//fast/groups/ag_sanders/work/projects/${USER}/logs/$(date +%Y%m%d)_scTRIP_log.txt \
+	--output=//fast/groups/ag_sanders/work/projects/${myname}/logs/$(date +%Y%m%d)_scTRIP_log.txt \
 	--mail-user=${myemail}
 	scTRIP_job.sh
 ```
