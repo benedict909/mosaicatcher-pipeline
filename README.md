@@ -39,6 +39,8 @@ sbatch \
 
 Where `${PIPELINE_DIR}` is the directory containing this cloned repo, which also contains a `/bam/` directory with the structure detailed below.
 
+You can either edit ${myemail} and ${myname} manually, or (to make your life easier) add them as an environmental bash variables (e.g. by adding export myname=benedict to your ~/.bashrc file).
+
 See below for original README:
 
 ## Overview of this workflow
